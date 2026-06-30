@@ -56,8 +56,8 @@ def render_history(conv: dict) -> None:
 
 
 def render_suggestions(conv: dict) -> str | None:
-    """Follow-up chips shown under the last assistant reply. Returns a clicked prompt, if any."""
-    if not conv["messages"] or conv["messages"][-1]["role"] != "assistant":
+    """Starter chips shown only on a brand-new, empty conversation. Returns a clicked prompt, if any."""
+    if conv["messages"]:
         return None
     clicked = None
     with st.container(key="suggestions"):
