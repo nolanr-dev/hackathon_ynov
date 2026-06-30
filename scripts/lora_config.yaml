@@ -1,0 +1,19 @@
+model: mlx-community/Phi-3.5-mini-instruct-4bit
+train: true
+data: ./data
+adapter_path: ./adapters
+fine_tune_type: lora
+num_layers: 16
+batch_size: 2
+iters: 2400
+learning_rate: 0.0002
+max_seq_length: 1024
+steps_per_report: 10
+steps_per_eval: 200
+save_every: 200
+val_batches: 25
+seed: 3407
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.0
