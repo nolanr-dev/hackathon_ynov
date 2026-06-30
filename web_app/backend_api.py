@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
-DEFAULT_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://10.70.0.179:11434")
+DEFAULT_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://10.70.0.50:11434")
 DEFAULT_MODEL = "phi3.5-financial"
 HEALTH_TIMEOUT = 3
 CHAT_TIMEOUT = 120
