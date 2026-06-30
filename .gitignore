@@ -1,2 +1,16 @@
 datasets/dataset_v0.json
 .DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Streamlit / logs
+web_app/streamlit_out.log
+web_app/streamlit_err.log
+*.log
