@@ -10,9 +10,9 @@ if not parquet_path.exists():
 query = f"""
 COPY (
     SELECT
-        TRIM(Description) AS Description,
-        TRIM(Patient) AS Patient,
-        TRIM(Doctor) AS Doctor
+        TRIM(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(Description, '-{{2,3}}>\\s*', ' ', 'g'), '-{{4,}}', ' ', 'g'), '\\s+', ' ', 'g')) AS Description,
+        TRIM(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(Patient, '-{{2,3}}>\\s*', ' ', 'g'), '-{{4,}}', ' ', 'g'), '\\s+', ' ', 'g')) AS Patient,
+        TRIM(REGEXP_REPLACE(REGEXP_REPLACE(REGEXP_REPLACE(Doctor, '-{{2,3}}>\\s*', ' ', 'g'), '-{{4,}}', ' ', 'g'), '\\s+', ' ', 'g')) AS Doctor
     FROM '{parquet_path.as_posix()}'
     WHERE Description IS NOT NULL AND TRIM(Description) <> ''
       AND Patient IS NOT NULL AND TRIM(Patient) <> ''
