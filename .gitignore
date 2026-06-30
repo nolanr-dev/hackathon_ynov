@@ -14,3 +14,10 @@ env/
 web_app/streamlit_out.log
 web_app/streamlit_err.log
 *.log
+
+# Secrets / local config
+.env
+!.env.example
+
+# Conversation history (local, persisted at runtime)
+web_app/data/conversations.json

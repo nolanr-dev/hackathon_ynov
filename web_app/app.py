@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import streamlit as st
 
 import state
-from components import chat, cyber_security, sidebar
+from components import chat, sidebar
 from components.styles import CSS
 
 st.set_page_config(page_title="TechCorp AI · Phi-3.5-Financial", page_icon="◆", layout="wide")
@@ -21,7 +21,6 @@ sidebar.render()
 
 conv = state.current_conversation()
 chat.render_header(conv)
-cyber_security.render_banner()
 chat.render_history(conv)
 
 suggestion = chat.render_suggestions(conv)

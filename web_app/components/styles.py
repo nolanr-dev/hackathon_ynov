@@ -26,7 +26,13 @@ html, body, .stApp {
 }
 
 #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] { visibility: hidden; height: 0; }
-[data-testid="stHeader"] { background: transparent; height: 0; }
+[data-testid="stHeader"] { background: transparent; }
+[data-testid="stSidebarCollapsedControl"] {
+    visibility: visible !important;
+    display: flex !important;
+    opacity: 1 !important;
+    z-index: 999999 !important;
+}
 
 section[data-testid="stSidebar"] {
     background-color: var(--bg-sidebar) !important;
@@ -124,15 +130,6 @@ section[data-testid="stSidebar"] > div { padding-top: 1.2rem; }
     font-family:'JetBrains Mono',monospace; color: var(--text-muted);
 }
 
-/* Security banner (CYBER audit) */
-.security-banner {
-    display:flex; align-items:center; gap:.6rem;
-    background: var(--accent-soft); border:1px solid var(--accent);
-    border-radius:10px; padding:.55rem .85rem; margin-bottom:1rem;
-    font-size:.78rem; color: var(--text);
-}
-.security-banner.alert { background: var(--danger-soft); border-color: var(--danger); }
-
 /* Messages */
 .avatar {
     width:30px;height:30px;border-radius:8px; display:flex; align-items:center; justify-content:center;
@@ -168,9 +165,10 @@ section[data-testid="stSidebar"] > div { padding-top: 1.2rem; }
 
 /* Chat input */
 [data-testid="stChatInput"] textarea {
-    background: var(--bg-card) !important; border:1px solid var(--border) !important;
+    background: var(--bg-card) !important; border:none !important;
     border-radius: 999px !important; color: var(--text) !important;
 }
+[data-testid="stChatInput"] > div { border:none !important; }
 [data-testid="stChatInput"] { border-top:1px solid var(--border); padding-top:.75rem; }
 
 .input-footer {

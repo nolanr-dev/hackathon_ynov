@@ -65,12 +65,10 @@ def _render_history() -> None:
 
 
 def _render_params(client: backend_api.OllamaClient) -> None:
+    models = client.list_models()
+    if models and st.session_state.model not in models:
+        st.session_state.model = models[0]
     with st.expander("Paramètres", expanded=True):
-        models = client.list_models()
-        if models:
-            if st.session_state.model not in models:
-                st.session_state.model = models[0]
-            st.selectbox("Modèle", models, key="model")
         st.slider("Température", 0.0, 1.0, key="temperature", step=0.05)
         st.slider("Max tokens", 128, 4096, key="max_tokens", step=64)
 
