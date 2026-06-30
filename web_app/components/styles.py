@@ -25,11 +25,15 @@ html, body, .stApp {
     font-family: 'Inter', -apple-system, sans-serif !important;
 }
 
-#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] { visibility: hidden; height: 0; }
+footer, [data-testid="stDecoration"], [data-testid="stMainMenu"],
+[data-testid="stToolbarActions"], [data-testid="stStatusWidget"],
+[data-testid="stAppDeployButton"] { visibility: hidden; height: 0; }
 [data-testid="stHeader"] { background: transparent; }
-[data-testid="stSidebarCollapsedControl"] {
+/* Keep the toolbar itself visible — it's where Streamlit renders the
+   sidebar re-expand arrow (stExpandSidebarButton) once collapsed. */
+[data-testid="stToolbar"] { visibility: visible !important; height: auto !important; }
+[data-testid="stExpandSidebarButton"] {
     visibility: visible !important;
-    display: flex !important;
     opacity: 1 !important;
     z-index: 999999 !important;
 }
